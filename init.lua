@@ -239,6 +239,15 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 
+vim.lsp.config('qmlls', {
+  cmd = { 'qmlls' },
+  filetypes = { 'qml', 'qmljs' },
+  root_markers = { '.git', '.qmlls.ini', 'CMakeLists.txt' },
+})
+
+-- 2. Enable it
+vim.lsp.enable('qmlls')
+
 ---@type vim.Option
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
